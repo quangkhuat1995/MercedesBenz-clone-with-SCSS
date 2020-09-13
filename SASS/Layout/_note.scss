@@ -1,0 +1,14 @@
+.note {
+  @include sectionPadding(14, 2.5);
+  .note__content {
+    .note__head {
+      margin-bottom: 1rem;
+      .note__head--title {
+        display: inline-block;
+      }
+      .note__head--title:not(:last-of-type) {
+        margin-right: 20px;
+      }
+    }
+  }
+}

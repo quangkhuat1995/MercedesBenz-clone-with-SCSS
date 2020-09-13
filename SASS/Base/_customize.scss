@@ -1,0 +1,33 @@
+.container {
+  width: 100%;
+  padding-left: 1px;
+  padding-right: 1px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@include responsive("small") {
+  .container {
+    max-width: 90%;
+  }
+}
+@include responsive("medium") {
+  .container {
+    max-width: 708px;
+  }
+}
+@include responsive("large") {
+  .container {
+    max-width: 964px;
+  }
+}
+@include responsive("extra-large") {
+  .container {
+    max-width: 1170px;
+  }
+}
+@media screen and(min-width:992px) and (max-width: 1024px) {
+  [class*="col-lg-"] {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+}

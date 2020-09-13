@@ -1,0 +1,27 @@
+@keyframes InfoDown {
+  0% {
+    transform: translateY(-30px); //-60px
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes TitleDown {
+  0% {
+    transform: translateY(-4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes MenuAnimation {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(calc(100% - 46px));
+    // animation-play-state: paused;
+  }
+}

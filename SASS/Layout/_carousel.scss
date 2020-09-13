@@ -1,0 +1,141 @@
+.hero {
+  #mainCarousel {
+    .carousel-item {
+      .carousel__img {
+        position: relative;
+        .carousel-control-prev {
+          width: 10%;
+          opacity: 1;
+          z-index: 10;
+          pointer-events: none;
+          span {
+            pointer-events: all;
+            i {
+              transform: scaleY(1.25);
+            }
+          }
+          &:hover {
+            opacity: 0.8;
+          }
+          &:active {
+            color: $color-blue-0;
+          }
+        }
+        .carousel-control-next {
+          @extend .carousel-control-prev;
+        }
+        .dark-theme {
+          color: $color-dark-0;
+        }
+      }
+      .carousel__bg_content {
+        background: #f4f4f4;
+        .carousel-caption {
+          position: relative;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+        }
+        .section__container {
+          @extend .carousel-caption;
+          // width: 90%;
+          // margin: 0 auto; dung class container
+          text-align: left;
+          // margin-top: $fs-14 + 1;
+          min-height: 60vh;
+          @include styleSection($color-trans, 2rem, 0);
+
+          .carousel__title {
+            @include lineTop($color-dark-0, $fs-14 + 1);
+            @include sytleText($fs-14 * 2, $fw-thin, $color-dark-0);
+            font-family: $ff-title;
+            // color: #333;
+            // font-size: 28px;
+            line-height: 1.2;
+            margin: 0 0 15px 0;
+            width: 100%;
+            animation: TitleDown 0.5s ease-out 0.75s forwards;
+            opacity: 0;
+            // // transform: translateY(-100%);
+          }
+          .btn-more {
+            animation: InfoDown 0.75s ease-out 1.1s forwards;
+            opacity: 0;
+          }
+          .info__group {
+            position: relative;
+            animation: InfoDown 0.75s ease-out 1.1s forwards;
+            opacity: 0;
+            .carousel__info {
+              @include sytleText($fs-14, $fw-normal, $color-dark-0);
+              line-height: 22px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include responsive("medium") {
+  .hero {
+    #mainCarousel {
+      .carousel-item {
+        .carousel__bg_content {
+          background: $color-trans;
+          .section__container {
+            position: absolute;
+            left: 7%; //10%
+            right: 7%; //10%
+            top: 1.5rem;
+            width: unset;
+            height: auto;
+            margin: 0;
+            .carousel__title {
+              max-width: 50%;
+              @include lineTop($color-white-0, $fs-14 * 2);
+              @include sytleText($fs-40, $fw-thin, $color-white-0);
+              line-height: 44px;
+            }
+            .dark-theme {
+              @include lineTop($color-dark-0, $fs-14 * 2);
+              @include sytleText($fs-40, $fw-thin, $color-dark-0);
+            }
+            .info__group {
+              position: absolute;
+              bottom: 20px;
+              //animation
+              .carousel__info {
+                @include sytleText($fs-14, $fw-normal, $color-white-0);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .hero {
+    #mainCarousel {
+      .carousel-item {
+        .carousel__img {
+          img {
+            height: 80vh;
+            object-fit: cover;
+          }
+          .carousel-control-prev {
+            width: calc(10% + 46px);
+          }
+        }
+        .carousel__bg_content {
+          .section__container {
+            left: 10%;
+            right: 10%;
+          }
+        }
+      }
+    }
+  }
+}

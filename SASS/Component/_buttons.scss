@@ -1,0 +1,49 @@
+.btn-more {
+  display: inline-block;
+  margin-bottom: 15px;
+  @include styleButton($color-dark-0, $color-dark-6, 6px, $pd-2, 7px);
+  @include sytleText($fs-16, $fw-normal, $color-white-0);
+  &:hover {
+    @include buttonHover($color-dark-5, $color-dark-5, #f0f0f0);
+    outline: none;
+  }
+}
+.btn-search {
+  @include styleButton($color-light-1, $color-light-1, 1px, $pd-2, 1px);
+}
+
+.btn-submit {
+  padding: 6px 20px;
+  background: linear-gradient(#242424, #0b0b0b);
+  border-bottom-color: #0b0b0b;
+  border-left-color: #2a2a2a;
+  border-radius: 0;
+  border-right-color: #0b0b0b;
+  border-top-color: #242424;
+}
+
+.btn-action {
+  @include styleButton($color-blue-0, $color-blue-0, 6px, 12px, 5px);
+  @include sytleText($fs-16, $fw-normal, $color-white-0);
+  &:hover {
+    @include buttonHover($color-blue-1, $color-blue-1, $color-white-0);
+  }
+}
+.btn-show {
+  @include styleButton(
+    linear-gradient(#303030, #202020),
+    $color-dark-6,
+    6px,
+    20px,
+    6px
+  );
+  @include sytleText($fs-14, $fw-normal, $color-dark-2);
+  @include displayFlex(row, space-between, center);
+  &:hover {
+    color: #f0f0f0;
+  }
+  i {
+    margin-right: 8px;
+    // margin-top: 2px;
+  }
+}

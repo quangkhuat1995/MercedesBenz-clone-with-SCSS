@@ -1,0 +1,249 @@
+.footer {
+  @include sytleText($fs-14, $fw-normal, $color-dark-2);
+  .footer__hr {
+    height: 1px;
+    border-color: #333;
+    margin: 30px 0;
+  }
+  .footer__item--title {
+    @include sytleText($fs-30, $fw-normal, $color-white-0);
+    &.light-dash {
+      @include lineTop($color-white-0, $mg-2);
+    }
+    @include lineTop($color-black-0, $mg-2);
+    font-family: $ff-title;
+    margin-top: 30px;
+    margin-bottom: 25px;
+  }
+  .footer__content {
+    display: flex;
+    flex-wrap: wrap;
+    .footer__item {
+      padding: 0;
+      ul {
+        margin-bottom: 1rem;
+        a {
+          color: $color-dark-2;
+          transition: all 0.5s;
+          &:hover {
+            color: $color-blue-0;
+          }
+        }
+      }
+      .form-search {
+        .input-group {
+          .form-control {
+            @include styleButton($color-dark-3, $color-dark-3, 3px, $pd-1, 3px);
+            @include sytleText($fs-22, $fw-normal, $color-white-0);
+            font-family: $ff-title;
+            &::placeholder {
+              @extend %placeholderItalic;
+            }
+          }
+          .btn-submit {
+            flex: 0 1 auto;
+            min-width: 30%;
+            color: $color-dark-2;
+            &:hover {
+              color: $color-blue-0;
+            }
+            i {
+              margin-right: 5px;
+            }
+          }
+        }
+        .footer__check {
+          margin-top: 0.8rem;
+          .form-check-input {
+            // visibility: hidden;
+            opacity: 0;
+            &:checked + .form-check-label .mycheck::before {
+              content: "\2713";
+              font-size: 15px;
+              color: $color-white-0;
+              text-align: center;
+              line-height: 17px;
+              font-weight: $fw-bold-1;
+              font-size: $fs-14;
+              box-shadow: 0px 0px 4px -1px rgba(255, 255, 255, 0.5),
+                0px 0px 4px 2px rgba(255, 255, 255, 0.5);
+            }
+          }
+          .form-check-label {
+            margin-left: 1rem;
+            cursor: pointer;
+            .mycheck {
+              position: relative;
+              left: -1.85rem;
+              &::before {
+                content: "";
+                display: inline-block;
+                width: 17px;
+                height: 17px;
+                background-color: $color-dark-4;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+              }
+            }
+          }
+        }
+      }
+      .icon-group {
+        margin-bottom: 2rem;
+        ul {
+          margin: -15px -25px;
+          li {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            float: left;
+            margin: 15px 25px;
+            font-size: 1.3rem;
+          }
+          &::after {
+            content: "";
+            clear: both;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+  .footer__subbrand {
+    ul {
+      @extend .footer__content;
+      // flex-wrap: nowrap;
+      .footer__subbrand--item {
+        padding: 0;
+        text-align: center;
+        // flex-basis: calc(100% / 3);
+        margin: $mg-1 + 1 0;
+        @include displayFlex(row, center, center);
+        a {
+          display: block;
+          img {
+            height: 2rem;
+          }
+        }
+      }
+    }
+  }
+  .footer__disclaim {
+    .footer__disclaim--left,
+    .footer__disclaim--right {
+      padding: 0;
+    }
+    .footer__disclaim--item--left {
+      margin-bottom: 2rem;
+
+      @include displayFlex(row, center, center);
+      li {
+        @include sytleText($fs-16, $fw-normal, $color-white-0);
+        cursor: context-menu;
+      }
+      .middle-dash {
+        cursor: pointer;
+        a {
+          color: $color-blue-0;
+        }
+        &::after {
+          content: "|";
+          padding: 0 1rem;
+          color: $color-blue-0;
+        }
+        &:hover {
+          a {
+            color: $color-blue-1;
+          }
+        }
+      }
+    }
+    .footer__disclaim--mid {
+      @include displayFlex(column, unset, unset);
+      @extend .footer__disclaim--left;
+      .footer__disclaim--mid--group {
+        position: relative;
+        display: flex;
+        align-items: baseline;
+        .footer__disclaim--item--mid {
+          margin-bottom: 1rem;
+
+          li {
+            // display: block;
+            float: left;
+            margin-right: 1.5rem;
+          }
+          a {
+            @include sytleText($fs-14, $fw-normal, $color-light-3);
+            &:hover {
+              color: $color-blue-0;
+            }
+          }
+        }
+      }
+    }
+
+    .footer__disclaim--item--right {
+      @include displayFlex(row, flex-end, center);
+      margin-bottom: $mg-4 + 1;
+      a {
+        @include sytleText($fs-14, $fw-normal, $color-light-3);
+        &:hover {
+          color: $color-blue-0;
+        }
+      }
+    }
+  }
+  .height-space {
+    height: $pd-2 + 1;
+  }
+}
+@include responsive("medium") {
+  .footer {
+    margin: 0;
+    .footer__disclaim {
+      .footer__disclaim--item--left {
+        @include displayFlex(row, flex-start, center);
+        margin-bottom: $mg-1;
+      }
+      .footer__disclaim--item--right {
+        margin-bottom: $mg-1;
+      }
+    }
+  }
+}
+@include responsive("large") {
+  .footer {
+    .footer__disclaim {
+      .footer__disclaim--mid--group {
+        @include displayFlex(row, flex-end, center);
+      }
+    }
+  }
+}
+@include responsive("1200") {
+  .footer {
+    .footer__content {
+      .footer__item--right {
+        margin-left: calc(100% / 12);
+      }
+    }
+    .footer__disclaim {
+      .footer__disclaim--mid {
+        @include displayFlex(row, flex-end, unset);
+        .footer__disclaim--mid--group {
+          &:first-of-type {
+            order: 2;
+          }
+          .footer__disclaim--item--mid {
+            li {
+              margin: 0 0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

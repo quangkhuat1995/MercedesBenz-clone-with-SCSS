@@ -1,0 +1,62 @@
+$color-black-0: #000; //default
+$color-white-0: #fff; //default
+
+$color-light-0: #ddd;
+$color-light-1: #ececec;
+$color-light-2: rgba(0, 0, 0, 0.35);
+$color-light-3: #636363;
+
+$color-dark-0: #333;
+$color-dark-1: #141414;
+$color-dark-2: #999;
+$color-dark-3: #2a2a2a;
+$color-dark-4: #2e2e2e;
+$color-dark-5: #1f1f1f;
+$color-dark-6: #202020;
+
+$color-blue-0: #00adef;
+$color-blue-1: #0088c6;
+
+$color-trans: transparent;
+
+//font-size
+$fs-12: 12px;
+$fs-14: 14px; //default 14px
+$fs-16: 16px;
+$fs-22: 22px;
+$fs-30: 30px;
+$fs-35: 2.5rem;
+$fs-40: 40px;
+
+//font-weight
+$fw-thin: 300;
+$fw-normal: 400; //default
+$fw-bold-0: 600;
+$fw-bold-1: 700;
+
+//line-height
+$line-height-0: 1.5; //default 22px
+$line-height-1: 1;
+//margin
+$mg-1: 1rem;
+$mg-2: 1.5rem;
+$mg-3: 1.75rem; // 25px
+$mg-4: 4rem;
+
+//padding
+$pd-1: 1rem; //2rem thi +1
+$pd-2: 1.5rem;
+$pd-3: 1.75rem;
+$pd-4: 4rem; // 56px
+//font-family
+$ff-title: "Times New Roman", Times, serif;
+//breakpoints
+$breakpoints: (
+  "extra-large": 1280px,
+  "1200": 1200px,
+  //btn nav change
+    "large": 1024px,
+  // logo change,...
+    "medium": 768px,
+  "small": 480px,
+);

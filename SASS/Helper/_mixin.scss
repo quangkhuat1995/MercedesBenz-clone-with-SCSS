@@ -1,0 +1,78 @@
+@mixin sytleText($fs, $fw, $color) {
+  font-size: $fs;
+  font-weight: $fw;
+  color: $color;
+}
+@mixin styleSection($bg-color, $py, $px) {
+  background: $bg-color;
+  padding: $py $px;
+}
+@mixin sectionPadding($pd-num, $times) {
+  padding-top: $pd-num * $times * 1px;
+  padding-bottom: $pd-num * $times * 1px;
+}
+@mixin displayFlex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin inlineBox($width, $length) {
+  width: $width;
+  height: $length;
+  line-height: $length;
+}
+
+@mixin lineTop($bg-color, $mgBottom) {
+  &::before {
+    content: "";
+    position: relative;
+    display: block;
+    margin-bottom: $mgBottom;
+    width: 60px;
+    height: 2px;
+    background: $bg-color;
+  }
+}
+@mixin styleButton($bg-color, $borderColor, $pd-top, $pd-x, $pd-bottom) {
+  background: $bg-color;
+  border-color: $borderColor;
+  padding: $pd-top $pd-x $pd-bottom;
+  border-radius: 0;
+}
+@mixin buttonHover($bg-color, $borderColor, $color) {
+  background: $bg-color;
+  border-color: $borderColor;
+  color: $color;
+}
+@mixin formSearch($bg-color, $color-border) {
+  background-color: $bg-color;
+  border-color: $color-border;
+}
+@mixin displayGrid($numOfCol, $numOfRow, $gap) {
+  display: grid;
+  grid-template-columns: repeat($numOfCol, 1fr);
+  grid-template-rows: repeat($numOfRow, 1fr);
+  grid-gap: $gap;
+}
+@mixin displayGrid_Child($fromCol, $numCol, $fromRow, $numRow) {
+  grid-column: $fromCol / span $numCol;
+  grid-row: $fromRow / span $numRow;
+}
+// @mixin centerHorizonePositionAbsolute(){
+// top:50%;
+// transform: translateY(-50%);
+// }
+@mixin responsive($screen) {
+  @if map-has-key($map: $breakpoints, $key: $screen) {
+    $value: map-get(
+      $map: $breakpoints,
+      $key: $screen,
+    );
+    @media screen and (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "khong tim thay gia tri";
+  }
+}

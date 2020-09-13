@@ -1,0 +1,47 @@
+.welcome {
+  @include sectionPadding(25, 1);
+  .welcome__content {
+    @include sectionPadding(60, 1);
+    .welcome__title {
+      @include lineTop($color-white-0, $mg-2);
+      @include sytleText($fs-35, $fw-normal, $color-white-0);
+      font-family: $ff-title;
+      line-height: $line-height-1;
+      margin-bottom: 1rem;
+    }
+    p {
+      a {
+        color: $color-blue-0;
+        &:hover {
+          color: $color-blue-1;
+        }
+      }
+    }
+    .btn-action {
+      display: block;
+      margin-top: 40px;
+      // text-align: center;
+    }
+  }
+}
+@include responsive("medium") {
+  .welcome {
+    .welcome__content {
+      .btn-action {
+        display: inline-block;
+      }
+    }
+  }
+}
+@include responsive("large") {
+  .welcome {
+    .welcome__content {
+      width: calc((2 / 3) * 100%);
+    }
+  }
+}
+@include responsive("extra-large") {
+  .welcome {
+    @include sectionPadding(60, 1);
+  }
+}

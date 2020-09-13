@@ -1,0 +1,14 @@
+.search {
+  @include styleSection($color-dark-1, $pd-3 + 0.1, 0);
+  .form-search {
+    .input-group {
+      .form-control {
+        @include sytleText(1.285rem, $fw-normal, $color-dark-0);
+        @include formSearch($color-light-1, $color-light-1);
+      }
+      .input-group-text {
+        @extend .form-control;
+      }
+    }
+  }
+}

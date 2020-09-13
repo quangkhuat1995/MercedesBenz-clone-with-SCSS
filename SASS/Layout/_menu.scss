@@ -1,0 +1,105 @@
+.menu {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  @include sytleText($fs-14, $fw-normal, $color-white-0);
+  background: $color-black-0;
+  padding: 2px 2px 0;
+  z-index: 99;
+  .menu__content {
+    @include displayFlex(row, center, center);
+    text-align: center;
+    .product {
+      border-top-left-radius: 3px;
+    }
+    .share {
+      border-top-right-radius: 3px;
+      .social-icon {
+        display: none;
+      }
+    }
+    .menu__item {
+      margin: 0 1px;
+      width: calc(25% - 2px);
+      background: $color-dark-5;
+      &:hover {
+        a {
+          color: $color-white-0;
+        }
+      }
+      i {
+        display: block;
+        font-size: $fs-22;
+        @include inlineBox(100%, $fs-22 + 22);
+      }
+      .menu__name {
+        display: block;
+        font-size: $fs-12 - 1;
+        margin-top: -8px;
+        line-height: 20px;
+      }
+      //viet responsive cho menu__name và i chỗ này hay viết xuống chỗ tô
+    }
+    //Viết responsvie cho menu__item chỗ này hay viết xuống dưới chỗ tô
+  }
+  // @include responsive("medium") {
+  //   .menu__content {
+  //     @include displayFlex(column, center, center);
+  //   }
+  // }
+}
+@include responsive("medium") {
+  .menu {
+    left: auto;
+    bottom: auto;
+    right: 0;
+    top: 30%;
+    transform: translateY(-30%);
+    width: max-content;
+    background: $color-trans;
+    pointer-events: none;
+    .menu__content {
+      @include displayFlex(column, center, start);
+      overflow: hidden;
+
+      .menu__item {
+        pointer-events: all;
+        text-align: left;
+        margin: 1px 0px;
+        width: 230px;
+        i {
+          display: inline-block;
+          @include inlineBox(46px, 46px);
+          text-align: center;
+        }
+        .menu__name {
+          display: inline-block;
+          @include inlineBox(184px, 46px);
+          font-size: $fs-16;
+          vertical-align: top;
+          margin: 0;
+        }
+        .hide-on-desk {
+          display: none;
+        }
+        animation: MenuAnimation 0.75s ease-out 0s 1 none;
+        transform: translateX(calc(100% - 46px));
+        transition: transform 0.5s;
+        &:hover {
+          transform: translateX(0);
+        }
+      }
+      .share {
+        border-radius: 0;
+        border-bottom-left-radius: 3px;
+        .social-icon {
+          display: inline-block;
+          &:hover {
+            color: $color-blue-0;
+          }
+        }
+      }
+    }
+  }
+}
